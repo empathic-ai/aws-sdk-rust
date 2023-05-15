@@ -5,7 +5,7 @@
 
 use std::ops::Deref;
 use std::sync::{Arc, Mutex};
-use std::time::{Duration, SystemTime};
+use web_time::{Duration, SystemTime};
 
 /// Time source abstraction
 ///
@@ -67,7 +67,7 @@ impl Default for TimeSource {
 /// #     }
 /// # }
 /// use aws_credential_types::time_source::{TestingTimeSource, TimeSource};
-/// use std::time::{UNIX_EPOCH, Duration};
+/// use time::{UNIX_EPOCH, Duration};
 /// let mut time = TestingTimeSource::new(UNIX_EPOCH);
 /// let client = Client::with_timesource(TimeSource::testing(&time));
 /// time.advance(Duration::from_secs(100));
@@ -124,7 +124,7 @@ enum Inner {
 mod test {
     use super::{TestingTimeSource, TimeSource};
 
-    use std::time::{Duration, UNIX_EPOCH};
+    use web_time::{Duration, UNIX_EPOCH};
 
     #[test]
     fn default_time_source_should_not_panic_on_calling_now() {

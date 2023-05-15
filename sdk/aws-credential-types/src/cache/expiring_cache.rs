@@ -6,7 +6,9 @@
 use std::future::Future;
 use std::marker::PhantomData;
 use std::sync::Arc;
-use std::time::{Duration, SystemTime};
+//use time::{Duration};
+use web_time::SystemTime;
+use web_time::Duration;
 use tokio::sync::{OnceCell, RwLock};
 
 /// Expiry-aware cache
@@ -106,7 +108,7 @@ fn expired(expiration: SystemTime, buffer_time: Duration, now: SystemTime) -> bo
 mod tests {
     use super::{expired, ExpiringCache};
     use crate::{provider::error::CredentialsError, Credentials};
-    use std::time::{Duration, SystemTime};
+    use web_time::{Duration, SystemTime};
     use tracing_test::traced_test;
 
     fn credentials(expired_secs: u64) -> Result<(Credentials, SystemTime), CredentialsError> {

@@ -7,7 +7,8 @@ use aws_smithy_types::date_time::Format;
 use std::fmt;
 use std::fmt::{Debug, Formatter};
 use std::sync::Arc;
-use std::time::{SystemTime, UNIX_EPOCH};
+use web_time::{SystemTime};
+use web_time::UNIX_EPOCH;
 use zeroize::Zeroizing;
 
 /// AWS SDK Credentials
@@ -181,7 +182,7 @@ impl Credentials {
 #[cfg(test)]
 mod test {
     use crate::Credentials;
-    use std::time::{Duration, UNIX_EPOCH};
+    use web_time::{Duration, UNIX_EPOCH};
 
     #[test]
     fn debug_impl() {

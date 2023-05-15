@@ -78,7 +78,7 @@ use std::sync::Arc;
 pub mod error {
     use std::error::Error;
     use std::fmt;
-    use std::time::Duration;
+    use web_time::Duration;
 
     /// Details for [`CredentialsError::CredentialsNotLoaded`]
     #[derive(Debug)]
