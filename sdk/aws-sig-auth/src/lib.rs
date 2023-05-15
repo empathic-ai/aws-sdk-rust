@@ -18,7 +18,7 @@
 //! use aws_smithy_http::body::SdkBody;
 //! use aws_types::SigningService;
 //! use aws_types::region::{Region, SigningRegion};
-//! use std::time::{Duration, SystemTime, UNIX_EPOCH};
+//! use web_time::{Duration, SystemTime, UNIX_EPOCH};
 //! use aws_sig_auth::signer::{self, SigningError, OperationSigningConfig, HttpSignatureType, RequestConfig};
 //!
 //! fn generate_rds_iam_token(
@@ -85,7 +85,7 @@
 //! use aws_types::region::{Region, SigningRegion};
 //! use aws_types::SigningService;
 //! use std::error::Error;
-//! use std::time::SystemTime;
+//! use web_time::SystemTime;
 //! async fn sign_request(
 //!     mut request: &mut http::Request<SdkBody>,
 //!     region: Region,
