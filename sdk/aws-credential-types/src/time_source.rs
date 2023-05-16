@@ -40,7 +40,7 @@ impl TimeSource {
     /// Returns the current system time based on the mode.
     pub fn now(&self) -> SystemTime {
         match &self.0 {
-            Inner::Default => SystemTime::now(),
+            Inner::Default => SystemTime::UNIX_EPOCH.checked_add(time::SystemTime::elapsed(&time::SystemTime::UNIX_EPOCH).unwrap()).unwrap(),
             Inner::Testing(testing) => testing.now(),
         }
     }
