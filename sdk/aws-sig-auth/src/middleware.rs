@@ -5,7 +5,7 @@
 
 use std::error::Error;
 use std::fmt::{Display, Formatter};
-use time::SystemTime;
+use std::time::SystemTime;
 
 use aws_smithy_http::middleware::MapRequest;
 use aws_smithy_http::operation::Request;

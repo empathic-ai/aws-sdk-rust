@@ -14,7 +14,7 @@ use aws_types::region::SigningRegion;
 use aws_types::SigningService;
 use std::fmt;
 use std::time::Duration;
-use time::{SystemTime};
+use std::time::{SystemTime};
 
 pub use aws_sigv4::http_request::SignableBody;
 pub type SigningError = aws_sigv4::http_request::SigningError;
