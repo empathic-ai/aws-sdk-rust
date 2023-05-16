@@ -7,7 +7,7 @@
 
 use std::sync::Arc;
 use std::time::Duration;
-use time::{Instant};
+use web_time::{Instant};
 
 use aws_smithy_async::future::timeout::Timeout;
 use aws_smithy_async::rt::sleep::AsyncSleep;
