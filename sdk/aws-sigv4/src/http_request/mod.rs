@@ -11,7 +11,7 @@
 //! # fn test() -> Result<(), aws_sigv4::http_request::SigningError> {
 //! use aws_sigv4::http_request::{sign, SigningSettings, SigningParams, SignableRequest};
 //! use http;
-//! use web_time::SystemTime;
+//! use time::SystemTime;
 //!
 //! // Create the request to sign
 //! let mut request = http::Request::builder()

@@ -6,7 +6,8 @@
 //! Lazy, credentials cache implementation
 
 use std::sync::Arc;
-use web_time::{Duration, Instant};
+use std::time::Duration;
+use time::{Instant};
 
 use aws_smithy_async::future::timeout::Timeout;
 use aws_smithy_async::rt::sleep::AsyncSleep;
@@ -134,7 +135,7 @@ pub use builder::Builder;
 
 mod builder {
     use std::sync::Arc;
-    use web_time::Duration;
+    use std::time::Duration;
 
     use crate::cache::{CredentialsCache, Inner};
     use crate::provider::SharedCredentialsProvider;
@@ -345,7 +346,7 @@ mod builder {
 #[cfg(test)]
 mod tests {
     use std::sync::{Arc, Mutex};
-    use web_time::{Duration, SystemTime, UNIX_EPOCH};
+    use time::{Duration, SystemTime, UNIX_EPOCH};
 
     use aws_smithy_async::rt::sleep::TokioSleep;
     use tracing::info;

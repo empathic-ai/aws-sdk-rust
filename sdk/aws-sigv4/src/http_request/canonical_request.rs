@@ -22,7 +22,7 @@ use std::convert::TryFrom;
 use std::fmt;
 use std::fmt::Formatter;
 use std::str::FromStr;
-use web_time::SystemTime;
+use time::SystemTime;
 
 pub(crate) mod header {
     pub(crate) const X_AMZ_CONTENT_SHA_256: &str = "x-amz-content-sha256";
@@ -548,7 +548,7 @@ mod tests {
     use http::{header::HeaderName, HeaderValue};
     use pretty_assertions::assert_eq;
     use proptest::{prelude::*, proptest};
-    use web_time::Duration;
+    use time::Duration;
 
     fn signing_params(settings: SigningSettings) -> SigningParams<'static> {
         SigningParams {

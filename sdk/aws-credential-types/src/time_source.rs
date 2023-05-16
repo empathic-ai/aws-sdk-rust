@@ -5,7 +5,8 @@
 
 use std::ops::Deref;
 use std::sync::{Arc, Mutex};
-use web_time::{Duration, SystemTime};
+use std::time::Duration;
+use time::{SystemTime};
 
 /// Time source abstraction
 ///
@@ -124,7 +125,7 @@ enum Inner {
 mod test {
     use super::{TestingTimeSource, TimeSource};
 
-    use web_time::{Duration, UNIX_EPOCH};
+    use time::{Duration, UNIX_EPOCH};
 
     #[test]
     fn default_time_source_should_not_panic_on_calling_now() {

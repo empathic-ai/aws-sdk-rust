@@ -18,9 +18,8 @@ test-util = []
 
 [dependencies]
 fastrand = "1.4.0"
-time = "0.3.21"
+time = { git = "https://github.com/meridian-xr/time.git" }
 tracing = "0.1"
-web-time = "0.2.0"
 zeroize = "1"
 
 [dependencies.aws-smithy-async]

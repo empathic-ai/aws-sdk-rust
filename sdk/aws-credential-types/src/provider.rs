@@ -78,8 +78,8 @@ use std::sync::Arc;
 pub mod error {
     use std::error::Error;
     use std::fmt;
-    use web_time::Duration;
-
+    use std::time::Duration;
+    
     /// Details for [`CredentialsError::CredentialsNotLoaded`]
     #[derive(Debug)]
     pub struct CredentialsNotLoaded {

@@ -16,7 +16,7 @@
 )]
 
 use std::fmt;
-use web_time::SystemTime;
+use time::SystemTime;
 
 pub mod sign;
 
@@ -75,7 +75,7 @@ pub mod signing_params {
     use super::SigningParams;
     use std::error::Error;
     use std::fmt;
-    use web_time::SystemTime;
+    use time::SystemTime;
 
     /// [`SigningParams`] builder error
     #[derive(Debug)]

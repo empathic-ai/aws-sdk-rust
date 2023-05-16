@@ -325,7 +325,7 @@ mod tests {
     use pretty_assertions::assert_eq;
     use proptest::proptest;
     use std::borrow::Cow;
-    use web_time::Duration;
+    use time::Duration;
 
     macro_rules! assert_req_eq {
         ($a:tt, $b:tt) => {
@@ -603,7 +603,7 @@ mod tests {
             security_token: None,
             region: "us-east-1",
             service_name: "foo",
-            time: web_time::SystemTime::now(),
+            time: time::SystemTime::now(),
             settings,
         };
 
@@ -632,7 +632,7 @@ mod tests {
                 security_token: None,
                 region: "us-east-1",
                 service_name: "foo",
-                time: web_time::SystemTime::now(),
+                time: time::SystemTime::now(),
                 settings,
             };
 

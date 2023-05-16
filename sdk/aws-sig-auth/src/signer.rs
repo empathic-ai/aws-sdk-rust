@@ -13,7 +13,8 @@ use aws_smithy_http::body::SdkBody;
 use aws_types::region::SigningRegion;
 use aws_types::SigningService;
 use std::fmt;
-use web_time::{Duration, SystemTime};
+use std::time::Duration;
+use time::{SystemTime};
 
 pub use aws_sigv4::http_request::SignableBody;
 pub type SigningError = aws_sigv4::http_request::SigningError;
@@ -234,7 +235,8 @@ mod tests {
     use aws_sigv4::http_request::SigningSettings;
     use aws_types::region::SigningRegion;
     use aws_types::SigningService;
-    use web_time::{Duration, SystemTime};
+    use std::time::Duration;
+    use time::{SystemTime};
     use tracing_test::traced_test;
 
     #[test]

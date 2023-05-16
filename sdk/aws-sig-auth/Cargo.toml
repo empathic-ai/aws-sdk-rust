@@ -18,7 +18,7 @@ sign-eventstream = ["aws-smithy-eventstream", "aws-sigv4/sign-eventstream"]
 [dependencies]
 http = "0.2.2"
 tracing = "0.1"
-web-time = "0.2.0"
+time = { git = "https://github.com/meridian-xr/time.git" }
 
 [dependencies.aws-credential-types]
 path = "../aws-credential-types"
