@@ -346,7 +346,7 @@ mod builder {
 #[cfg(test)]
 mod tests {
     use std::sync::{Arc, Mutex};
-    use time::{Duration, SystemTime, UNIX_EPOCH};
+    use std::time::{Duration, SystemTime, UNIX_EPOCH};
 
     use aws_smithy_async::rt::sleep::TokioSleep;
     use tracing::info;
