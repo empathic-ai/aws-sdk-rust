@@ -52,7 +52,8 @@ pub fn default_async_sleep() -> Option<Arc<dyn AsyncSleep>> {
 #[cfg(not(feature = "rt-tokio"))]
 /// Returns a default sleep implementation based on the features enabled
 pub fn default_async_sleep() -> Option<Arc<dyn AsyncSleep>> {
-    None
+    //None
+    Some(sleep_web())
 }
 
 /// Future returned by [`AsyncSleep`].
@@ -173,6 +174,6 @@ pub async fn browser_sleep(millis: i32) {
 }
 
 #[cfg(not(feature = "rt-tokio"))]
-fn sleep_tokio() -> Arc<dyn AsyncSleep> {
+fn sleep_web() -> Arc<dyn AsyncSleep> {
     Arc::new(WebSleep::new())
 }
