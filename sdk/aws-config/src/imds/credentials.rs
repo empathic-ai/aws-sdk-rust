@@ -21,7 +21,9 @@ use std::borrow::Cow;
 use std::error::Error as StdError;
 use std::fmt;
 use std::sync::{Arc, RwLock};
-use std::time::{Duration, SystemTime};
+//use std::time::{Duration, SystemTime};
+use std::time::Duration;
+use time::{SystemTime};
 
 const CREDENTIAL_EXPIRATION_INTERVAL: Duration = Duration::from_secs(15 * 60);
 

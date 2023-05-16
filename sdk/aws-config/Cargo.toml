@@ -73,7 +73,7 @@ version = "0.14.25"
 default-features = false
 
 [dependencies.time]
-version = "0.3.4"
+git = "https://github.com/meridian-xr/time.git"
 features = ["parsing"]
 
 [dependencies.tokio]

@@ -8,7 +8,8 @@ use aws_credential_types::Credentials as AwsCredentials;
 use aws_sdk_sts::types::Credentials as StsCredentials;
 
 use std::convert::TryFrom;
-use std::time::{SystemTime, UNIX_EPOCH};
+//use std::time::{SystemTime, UNIX_EPOCH};
+use time::{SystemTime, UNIX_EPOCH};
 
 /// Convert STS credentials to aws_auth::Credentials
 pub(crate) fn into_credentials(

@@ -11,7 +11,8 @@ use aws_credential_types::Credentials;
 use aws_smithy_json::deserialize::Token;
 use std::fmt;
 use std::process::Command;
-use std::time::SystemTime;
+//use std::time::SystemTime;
+use time::SystemTime;
 use time::format_description::well_known::Rfc3339;
 use time::OffsetDateTime;
 

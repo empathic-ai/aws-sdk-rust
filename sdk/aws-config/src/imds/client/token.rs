@@ -36,7 +36,8 @@ use std::fmt::{Debug, Formatter};
 use std::future::Future;
 use std::pin::Pin;
 use std::sync::Arc;
-use std::time::{Duration, SystemTime};
+use std::time::{Duration};
+use time::SystemTime;
 
 /// Token Refresh Buffer
 ///
