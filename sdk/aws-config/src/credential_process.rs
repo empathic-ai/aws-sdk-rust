@@ -5,7 +5,8 @@
 
 //! Credentials Provider for external process
 
-use crate::json_credentials::{json_parse_loop, InvalidJsonCredentials, RefreshableCredentials};
+//use crate::json_credentials::{json_parse_loop, InvalidJsonCredentials, RefreshableCredentials};
+use crate::json_credentials::{json_parse_loop, InvalidJsonCredentials};
 use aws_credential_types::provider::{self, error::CredentialsError, future, ProvideCredentials};
 use aws_credential_types::Credentials;
 use aws_smithy_json::deserialize::Token;
@@ -15,6 +16,15 @@ use std::process::Command;
 use time::SystemTime;
 use time::format_description::well_known::Rfc3339;
 use time::OffsetDateTime;
+
+
+#[derive(PartialEq, Eq)]
+pub(crate) struct RefreshableCredentials<'a> {
+    pub(crate) access_key_id: Cow<'a, str>,
+    pub(crate) secret_access_key: Cow<'a, str>,
+    pub(crate) session_token: Cow<'a, str>,
+    pub(crate) expiration: SystemTime,
+}
 
 #[derive(Clone)]
 pub(crate) struct CommandWithSensitiveArgs<T>(T);

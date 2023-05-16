@@ -74,7 +74,7 @@ default-features = false
 
 [dependencies.time]
 git = "https://github.com/meridian-xr/time.git"
-features = ["parsing"]
+features = ["std", "wasm-bindgen", "parsing"]
 
 [dependencies.tokio]
 version = "1.13.1"
