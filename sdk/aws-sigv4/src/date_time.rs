@@ -6,11 +6,12 @@
 // Some of the functions in this file are unused when disabling certain features
 #![allow(dead_code)]
 
-use time::SystemTime;
+use std::time::SystemTime;
+//use time::OffsetDateTime;
 use time::{OffsetDateTime, Time};
 
 /// Truncates the subseconds from the given `SystemTime` to zero.
-pub(crate) fn truncate_subsecs(time: time::SystemTime) -> SystemTime {
+pub(crate) fn truncate_subsecs(time: SystemTime) -> SystemTime {
     let date_time = OffsetDateTime::from(time);
     let time = date_time.time();
     date_time
