@@ -19,7 +19,8 @@ tokio-stream = { version = "0.1.5", default-features = false }
 futures-util = { version = "0.3.16", default-features = false }
 
 [dev-dependencies]
-tokio = { version = "1.23.1", features = ["rt", "macros", "test-util"] }
+#tokio = { version = "1.23.1", features = ["rt", "macros", "test-util"] }
+tokio = { git = "https://github.com/meridian-xr/tokio.git", features = ["rt", "macros", "test-util"] }
 tokio-test = "0.4.2"
 
 [package.metadata.docs.rs]
