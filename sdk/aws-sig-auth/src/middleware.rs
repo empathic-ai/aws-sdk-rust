@@ -147,7 +147,7 @@ fn signing_config(
         request_ts: config
             .get::<SystemTime>()
             .copied()
-            .unwrap_or_else(SystemTime::now),
+            .unwrap_or_else(|| SystemTime::UNIX_EPOCH.checked_add(time::SystemTime::elapsed(&time::SystemTime::UNIX_EPOCH).unwrap()).unwrap()),
         region,
         payload_override,
         service: signing_service,
