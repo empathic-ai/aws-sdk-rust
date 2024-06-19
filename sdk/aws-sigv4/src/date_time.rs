@@ -6,7 +6,7 @@
 // Some of the functions in this file are unused when disabling certain features
 #![allow(dead_code)]
 
-use std::time::SystemTime;
+use time::SystemTime;
 //use time::OffsetDateTime;
 use time::{OffsetDateTime, Time};
 
