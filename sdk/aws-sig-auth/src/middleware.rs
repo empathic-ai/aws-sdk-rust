@@ -5,7 +5,7 @@
 
 use std::error::Error;
 use std::fmt::{Display, Formatter};
-use std::time::SystemTime;
+use time::SystemTime;
 
 use aws_smithy_http::middleware::MapRequest;
 use aws_smithy_http::operation::Request;
@@ -147,7 +147,7 @@ fn signing_config(
         request_ts: config
             .get::<SystemTime>()
             .copied()
-            .unwrap_or_else(|| SystemTime::UNIX_EPOCH.checked_add(time::SystemTime::elapsed(&time::SystemTime::UNIX_EPOCH).unwrap()).unwrap()),
+            .unwrap_or_else(|| SystemTime::UNIX_EPOCH.checked_add_std(time::SystemTime::elapsed(&time::SystemTime::UNIX_EPOCH).unwrap()).unwrap()),
         region,
         payload_override,
         service: signing_service,

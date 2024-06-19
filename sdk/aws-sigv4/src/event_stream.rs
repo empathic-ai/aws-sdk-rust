@@ -160,7 +160,7 @@ mod tests {
             security_token: None,
             region: "us-east-1",
             service_name: "testservice",
-            time: (UNIX_EPOCH + Duration::new(123_456_789_u64, 1234u32)),
+            time: (UNIX_EPOCH + Duration::new(123_456_789_i64, 1234i32)),
             settings: (),
         };
 
@@ -198,7 +198,7 @@ mod tests {
             security_token: None,
             region: "us-east-1",
             service_name: "testservice",
-            time: (UNIX_EPOCH + Duration::new(123_456_789_u64, 1234u32)),
+            time: (UNIX_EPOCH + Duration::new(123_456_789_i64, 1234i32)),
             settings: (),
         };
 

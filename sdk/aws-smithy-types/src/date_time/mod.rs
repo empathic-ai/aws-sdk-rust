@@ -12,9 +12,9 @@ use num_integer::Integer;
 use std::convert::TryFrom;
 use std::error::Error as StdError;
 use std::fmt;
-use std::time::Duration;
-use std::time::SystemTime;
-use std::time::UNIX_EPOCH;
+use time::Duration;
+use time::SystemTime;
+use time::UNIX_EPOCH;
 
 mod format;
 pub use self::format::DateTimeFormatError;
@@ -261,15 +261,15 @@ impl TryFrom<DateTime> for SystemTime {
                 nanos = NANOS_PER_SECOND_U32 - nanos;
             }
             UNIX_EPOCH
-                .checked_sub(Duration::new(secs, nanos))
+                .checked_sub(Duration::new(secs as i64, nanos as i32))
                 .ok_or(ConversionError(
                     "overflow occurred when subtracting duration from UNIX_EPOCH",
                 ))
         } else {
             UNIX_EPOCH
                 .checked_add(Duration::new(
-                    date_time.secs().unsigned_abs(),
-                    date_time.subsec_nanos(),
+                    date_time.secs().unsigned_abs() as i64,
+                    date_time.subsec_nanos() as i32,
                 ))
                 .ok_or(ConversionError(
                     "overflow occurred when adding duration to UNIX_EPOCH",
@@ -335,7 +335,7 @@ mod test {
     use crate::date_time::Format;
     use crate::DateTime;
     use std::convert::TryFrom;
-    use std::time::SystemTime;
+    use time::SystemTime;
     use time::format_description::well_known::Rfc3339;
     use time::OffsetDateTime;
 
