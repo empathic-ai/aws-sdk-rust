@@ -548,7 +548,7 @@ mod tests {
     use http::{header::HeaderName, HeaderValue};
     use pretty_assertions::assert_eq;
     use proptest::{prelude::*, proptest};
-    use time::Duration;
+    use std::time::Duration;
 
     fn signing_params(settings: SigningSettings) -> SigningParams<'static> {
         SigningParams {

@@ -252,11 +252,11 @@ mod tests {
             "test-access-key",
             "test-secret-key",
             Some("test-session-token".into()),
-            Some(now + creds_expire_in),
+            Some((now + creds_expire_in).into()),
             "test",
         );
         let request_config = RequestConfig {
-            request_ts: now,
+            request_ts: now.into(),
             region: &SigningRegion::from_static("test"),
             service: &SigningService::from_static("test"),
             payload_override: None,
