@@ -162,8 +162,6 @@ impl Future for ReceiverFuture {
     }
 }
 
-
-#[cfg(target_arch = "wasm32")]
 pub async fn browser_sleep(millis: i32) {
     let mut cb = |resolve: js_sys::Function, _reject: js_sys::Function| {
         web_sys::window()
