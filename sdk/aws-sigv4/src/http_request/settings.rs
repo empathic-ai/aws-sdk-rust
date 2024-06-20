@@ -4,7 +4,7 @@
  */
 
 use http::header::{HeaderName, USER_AGENT};
-use time::Duration;
+use std::time::Duration;
 
 /// HTTP signing parameters
 pub type SigningParams<'a> = crate::SigningParams<'a, SigningSettings>;

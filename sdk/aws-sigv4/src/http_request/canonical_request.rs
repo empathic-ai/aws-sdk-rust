@@ -22,7 +22,7 @@ use std::convert::TryFrom;
 use std::fmt;
 use std::fmt::Formatter;
 use std::str::FromStr;
-use time::SystemTime;
+use std::time::SystemTime;
 
 pub(crate) mod header {
     pub(crate) const X_AMZ_CONTENT_SHA_256: &str = "x-amz-content-sha256";

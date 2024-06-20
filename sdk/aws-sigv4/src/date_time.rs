@@ -49,8 +49,7 @@ pub(crate) fn format_date_time(time: SystemTime) -> String {
 /// Parse functions that are only needed for unit tests.
 #[cfg(test)]
 pub(crate) mod test_parsers {
-    use time::SystemTime;
-    use std::{borrow::Cow, error::Error, fmt};
+    use std::{borrow::Cow, error::Error, fmt, time::SystemTime};
     use time::format_description;
     use time::{Date, PrimitiveDateTime, Time};
 

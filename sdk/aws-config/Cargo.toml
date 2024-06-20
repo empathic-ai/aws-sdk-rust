@@ -73,7 +73,7 @@ version = "0.14.25"
 default-features = false
 
 [dependencies.time]
-git = "https://github.com/empathic-ai/time.git"
+git = "https://github.com/meridian-xr/time.git"
 features = ["std", "wasm-bindgen", "parsing"]
 
 [dependencies.tokio]
