@@ -54,6 +54,7 @@ fn calculate_string_to_sign(
     time: SystemTime,
     params: &SigningParams<'_>,
 ) -> Vec<u8> {
+    let time: std::time::SystemTime = time.into();
     // Event Stream string to sign format is documented here:
     // https://docs.aws.amazon.com/transcribe/latest/dg/how-streaming.html
     let date_time_str = format_date_time(time);
@@ -115,10 +116,12 @@ fn sign_payload<'a>(
 ) -> SigningOutput<Message> {
     // Truncate the sub-seconds up front since the timestamp written to the signed message header
     // needs to exactly match the string formatted timestamp, which doesn't include sub-seconds.
-    let time = truncate_subsecs(params.time);
+    let std_time = truncate_subsecs(params.time);
+
+    let time: SystemTime = std_time.into();
 
     let signing_key =
-        generate_signing_key(params.secret_key, time, params.region, params.service_name);
+        generate_signing_key(params.secret_key, time.into(), params.region, params.service_name);
     let string_to_sign = calculate_string_to_sign(
         message_payload.as_ref().map(|v| &v[..]).unwrap_or(&[]),
         last_signature,
@@ -135,7 +138,7 @@ fn sign_payload<'a>(
                 ":chunk-signature",
                 HeaderValue::ByteArray(hex::decode(&signature).unwrap().into()),
             ))
-            .add_header(Header::new(":date", HeaderValue::Timestamp(time.into()))),
+            .add_header(Header::new(":date", HeaderValue::Timestamp(std_time.into()))),
         signature,
     )
 }
@@ -143,7 +146,7 @@ fn sign_payload<'a>(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use time::{Duration, UNIX_EPOCH};
+    use std::time::{Duration, UNIX_EPOCH};
 
     #[test]
     fn string_to_sign() {
@@ -179,7 +182,7 @@ mod tests {
             std::str::from_utf8(&calculate_string_to_sign(
                 &message_payload,
                 &last_signature,
-                params.time,
+                params.time.into(),
                 &params
             ))
             .unwrap()
