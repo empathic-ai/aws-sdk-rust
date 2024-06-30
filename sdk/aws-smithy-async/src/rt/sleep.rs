@@ -13,8 +13,6 @@ use std::sync::Arc;
 use std::task::{Context, Poll};
 use std::time::Duration;
 
-//use gloo_timers::future::TimeoutFuture;
-//use futures::unsync::oneshot::{Sender, Receiver, channel};
 use futures::channel::oneshot;
 
 /// Async trait with a `sleep` function.
@@ -112,10 +110,12 @@ fn sleep_tokio() -> Arc<dyn AsyncSleep> {
 /// Implementation of [`AsyncSleep`] for Tokio.
 #[non_exhaustive]
 #[cfg(not(feature = "rt-tokio"))]
+#[cfg(target_arch = "wasm32")]
 #[derive(Debug, Default)]
 pub struct WebSleep;
 
 #[cfg(not(feature = "rt-tokio"))]
+#[cfg(target_arch = "wasm32")]
 impl WebSleep {
     /// Create a new [`AsyncSleep`] implementation using the Tokio hashed wheel sleep implementation
     pub fn new() -> WebSleep {
@@ -124,6 +124,7 @@ impl WebSleep {
 }
 
 #[cfg(not(feature = "rt-tokio"))]
+#[cfg(target_arch = "wasm32")]
 impl AsyncSleep for WebSleep {
     fn sleep(&self, duration: Duration) -> Sleep {
         let duration = duration.as_millis() as i32;
@@ -162,6 +163,7 @@ impl Future for ReceiverFuture {
     }
 }
 
+#[cfg(target_arch = "wasm32")]
 pub async fn browser_sleep(millis: i32) {
     let mut cb = |resolve: js_sys::Function, _reject: js_sys::Function| {
         web_sys::window()
